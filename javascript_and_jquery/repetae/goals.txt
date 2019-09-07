@@ -1,0 +1,13 @@
+- open a json file
+- inside the file there will be a list card objects
+- each card's question has dict values for level and review date
+- if the word's review datetime is in the past, it will be rendered
+  a input field.
+
+- if a words's review datetime is the future, it will be displayed as text
+
+- after all fields are filled, the user presses enter and each words level is
+  adjusted. each word is scheduled based on this new level.
+
+- the next review datetime for the card is set to the earliest datetime of
+  any word in the card
