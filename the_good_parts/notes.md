@@ -3,6 +3,12 @@ STUFF TO RESEARCH ONLINE
 * prototype
 
 
+SIDENOTES:
+==========
+You should always use const insteand of let or other declarations if you're sure you don't need
+mutability
+
+
 COMMENTS
 ========
 
@@ -317,3 +323,163 @@ Every object is linked to a prototype object from which it can inherit propertie
 ```
 Object.prototype
 ```
+prototypes are like classes but they are not the same thing - they are really messy!
+In the book there is an example of adding a create method to the Object function.
+The create method creates a new object that uses an old object as its prototyp. :|
+
+```
+if (typeof Object.create !== 'function'){
+	Object.create = function (o) {
+		var F = function () {};
+		F.prototype = o;
+		return new F();
+	};
+	}
+	var another_stooge = Object.create(stooge);
+```
+The prototype link has no effect on updating. When we make changes to an object
+the objects prototype is not touched:
+```
+another_stooge['first-name'] = 'Harry';
+another_stooge['middle-name'] = 'Moses';
+another_stooge.nickname = 'Moe';
+```
+protype is only used on retrieval. If an object doesnt have a referenced property,
+it will be looked up in the prototype first before resorting to 'undefined'
+
+protype can be updated after the fact and all objects linked to that protype are
+updated as well
+
+(this is sounding increasingly more like python style classes but i dont know)
+
+REFLECTION
+==========
+
+You can return the 'type' of an object with typeof:
+```
+typeof flight.number	//'number'
+typeof flight.status	//'string'
+typeof flight.arrival	//'object'
+typeof flight.manifest	//'undefined'
+```
+be careful - any property on the prototype chain can produce a value:
+typeof flight.toString		//'function'
+typeof flight.constructor	//'function'
+
+you can deal with these 'undesired' properties a couple of ways.
+Firstly, you can have your program look for and reject function values.
+
+another way is to use the 'hasOwnProperty' method. It returns true if the object
+has a particular property. hasOwnProperty does not look at the prototype chain:
+```
+flight.hasOwnProperty('number')		// true
+flight.hasOwnProperty('constructor') 	// false
+```
+
+ENUMERATION
+===========
+
+you can loop over all the property names in an object while skipping the values you
+dont want with 'hasOwnProperty':
+
+```
+var name;
+for (name in another_stooge) {
+	if (typeof another_stooge[name] !== 'function' {
+		document.writeln(name + ': ' + another_stooge[name]);
+	}
+}
+```
+note that the order of these names will be looped through in a random order
+impossible to predict. If you need to have a guarenteed order, its a good idea to
+add an array of the names of your properties in the correct order:
+
+```
+var i;
+var properties = [
+	'first-name',
+	'middle-name',
+	'last-name',
+	'profession'
+];
+for (i = 0; i < properties.length; i += 1) {
+	document.writeln(properties[i] + ': ' +
+		another_stooge[properties[i]]);
+}
+```
+
+You can delete a property of an object with 'delete'. It removes the property
+from an object, but it doesnt touch the other objects that in the prototype linkage:
+
+```
+another_stooge.nickname		// 'Moe'
+
+// Remove the nickname from another_stooge, revealing
+// the nickname of the prototype
+
+delete another_stooge.nickname;
+another_stooge.nickname		// 'Curly'
+```
+
+GLOBAL ABATEMENT
+================
+
+globals variables are easy to define in javascript, but it causes a lot of problems
+you can minimize the problems by using 1 big global variable:
+
+```
+MYAPP.stooge = {
+	"first-name": "Joe",
+	"last-name": "Howard"
+};
+MYAPP.flight = {
+	airline: "Oceanic",
+	number: 815
+	departure: {
+		IATA: "SYD",
+		time: "2004-09-22 14:55",
+		city: "Sydney"
+	},
+	arrival: {
+		IATA: "LAX",
+		time: "2004-09-23 10:42",
+		city: "Los Angeles"
+	}
+};
+```
+
+FUNCTION OBJECTS
+================
+
+In javascript all functions are objects.
+An object is a collection of name/value pairs that have a hidden link to
+Object.prototype.
+
+Functions are linked to Function.prototype which is in turn linked to
+Object.prototype.
+
+every function is also created with a prototype property. It's value is an
+object with a contructory property whose value is the function? :| wtf
+
+FUNCTION LITERAL
+================
+
+Function objects are created with funciton literals:
+```
+// Create a variable called add and store a function
+// in it that adds two numbers
+
+var add = function (a, b) {
+		//  ^ args go in here
+	return a + b;
+	//what you want to happen goes in the curly brackets
+};
+```
+
+a function literal has 4 parts:
+1. the word 'function'
+1. an optional name
+1. the arguements inside parenthesis
+1. the body of the function inside curly brackets
+
+
