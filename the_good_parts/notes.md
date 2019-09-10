@@ -1,6 +1,7 @@
 STUFF TO RESEARCH ONLINE
 ========================
 * prototype
+* languages that use prototypal inheritance (the right way)
 
 
 SIDENOTES:
@@ -499,4 +500,165 @@ two additional parameters are passed into a function when it's called:
 * this
 * arguments
 
-continued on page 27
+I think 'this' is like self in python but we'll see
+'this' is dependant on the 'invocation pattern'
+
+There a 4 different invocation patterns:
+1. method
+1. function
+1. constructor
+1. apply
+
+these determine how 'this' is initialized
+
+You don't get a runtime error if you give to many arguements - the extra ones
+are ignored and if there are too few arguments, the remaining will be undefined XD
+
+there is no arguement type checking
+
+THE METHOD INVOCATION PATTERN
+=============================
+
+A function which is stored as a property of an object is called a method.
+
+when a method is invoked, 'this' is bound to that object
+
+```
+// Create myObject. It has a value and an increment
+// method. The increment method takes an optional
+// parameter. If the arguement is not a number, then 1
+// is used as the default.
+
+var myObject = {
+	value: 0,
+	increment: function (inc) {
+		this.value += typeof inc === 'number' ? inc : 1;
+		// this looks like a way to set a default arg value
+	}
+};
+
+myObject.increment();
+document.writeln(myObject.value);	//1
+
+myObject.increment(2);
+document.writeln(myObject.value);	//3
+```
+
+I'm starting to realize that objects are somewhere between a python dict and
+a class. they have a 'this' in place of 'self' like a class but the syntax
+uses '{'s and ':'s just like a python dict
+
+methods that get their object context from 'this' are called 'public methods'
+
+THE FUNCTION INVOCATION PATTERN
+===============================
+
+when a function is not the property of an object, then it is invoked as a function.
+
+```
+var sum = add(3,4); // sum is 7
+```
+
+When a function is invoked in this way, 'this' is bound to the global object (bad)
+Instead, they should have made it so that when the inner function is invoked, 'this'
+would still be bound to the 'this' variable of the outer function.
+
+This means that an inner function can use 'this' correctly - even if it's called
+inside a method - all of which have a perfectly good 'this' to reference.
+
+The workaround is to use a agreed convention called 'that' :P
+
+```
+// Augment myObject with a double method.
+
+myObject.double = function () {
+	var that = this;	// Workaround.
+
+	var helper = function () {
+		that.value = add(that.value, that.value);
+	};
+
+	helper();	// Invoke helper as a function.
+};
+
+// Invoke double as a method.
+
+myObject.double();
+document.writeln(myObject.getValue());		//6
+```
+
+THE CONSTRUCTOR INVOCATION PATTERN
+==================================
+
+javascript is a 'prototypal inheritance language' That means that objects can inherit
+properties directly from other object. the language is CLASS FREE
+
+javascript isnt 'classical' but it's syntax is designed to make classical programmers
+happy - which was a stupid move.
+
+If a function is invoked with the new prefix, then a new object will be created with
+a hidden link to the value of the functions prototype memeber :/
+
+new also changes the behavior of the return statement.
+
+```
+// Create a contructor function called Quo.
+// It makes an object with a status property.
+
+var Quo = function (string) {
+	this.status = string;
+};
+
+// Give all instances of Quo a public method
+// called get_status.
+
+Quo.prototype.get_status = function () {
+	return this.status;
+};
+
+// Make an instance of Quo.
+
+var myQuo = new Quo("confused");
+
+document.writeln(myQuo.get_status());	// confused
+```
+functions that are intended to be used with the new prefix are called constructors
+
+It is convention to keep constructors in variables with a capitalized name.
+
+Be careful to only call constructors with the 'new' prefix. otherwise, you're gonna
+have a bad time :D
+
+you really shouldnt be fucking with constructors like this. later on we'll
+show the right way to do constructors
+
+THE APPLY INVOCATION PATTERN
+============================
+
+functions can have methods :|
+
+The apply method lets us construct an array of arguments to use to invoke a function.
+It also lets us choose the value of this. The 'apply' method makes two parameters.
+The first is the value that should be bound to this. The second is an array of parameters.
+
+```
+// Make an array of 2 numbers and add them.
+
+var array = [3, 4];
+var sum = add.apply(null, array);	// sum is 7
+
+// Make an object with a status member.
+
+var statusObject = {
+	status: 'A-OK'
+};
+
+// statusObject does not inherit from Quo.prototype,
+// but we can invoke the get_status method on
+// statusObject even though statusObject does not have
+// a get_status method.
+
+var status = Quo.prototype.get_status.apply(statusObject);
+	// status is 'A-OK'
+```
+continued at page 31
