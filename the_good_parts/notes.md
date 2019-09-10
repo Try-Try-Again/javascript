@@ -482,4 +482,21 @@ a function literal has 4 parts:
 1. the arguements inside parenthesis
 1. the body of the function inside curly brackets
 
+if a function does not have the optional name, it is considered anonymous
 
+just like lisp, functions in javascript can reference objects inside the object where
+they are nested (closures)
+
+INVOCATION
+==========
+
+Man this is cool. all our language design stuff is paying off :D
+so just like in our lisp mental model, when a function is called, it suspends the
+what ever higher level process that called the function. it creates a new
+'environment' for the new function to do its business.
+
+two additional parameters are passed into a function when it's called:
+* this
+* arguments
+
+continued on page 27
