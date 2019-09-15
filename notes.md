@@ -52,4 +52,12 @@ when you don't want any automatic type conversions, you use === and !==
 || returns value to the left if that value is true, otherwise it returns the value
 to the right
 
+remember to declare your variables with var inside functions - otherwise you'll reassign a global var
+
+you can start a statement with 'function' just like 'def' in python
+
+dont define functions inside functions - try to keep functions global
+
+If you have to define them only on the outermost program
+
 
