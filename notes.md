@@ -60,4 +60,6 @@ dont define functions inside functions - try to keep functions global
 
 If you have to define them only on the outermost program
 
-
+pro-tip:
+	How difficult it is to find a good name for a function is a good indicaton of how clear
+	a concept it is that you're trying to wrap.
