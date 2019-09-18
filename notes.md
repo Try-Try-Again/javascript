@@ -4,6 +4,9 @@ and just relax. Your only objective is to presevere. No deadlines, no promises
 except for 1. you will get there. eyes foreward.
 breathe in and out.
 
+ps. dont worry about not getting it. You only need to know a demons name to have
+power over him
+
 #idea
 forth optimized for working with and optimizing assembly code.
 should have eval keyworld which interprets 1 lisp program.
@@ -63,3 +66,21 @@ If you have to define them only on the outermost program
 pro-tip:
 	How difficult it is to find a good name for a function is a good indicaton of how clear
 	a concept it is that you're trying to wrap.
+
+
+the thing to know about recursion is that you can make large branching decision trees very little code
+It's never faster than imperative programming?
+
+Functions can be divided into two groups: those that are called for their return value and those that are
+called for side effects.
+
+side effects are basically anything a function can do besides return a value
+
+a function can have both return values and side effects
+
+a pure function only uses arguments, no global variables, etc. and only has return values - no side effects
+
+pure functions are the easiest to write tests for, but they might not be the easiest route so solving your
+problem.
+
+
