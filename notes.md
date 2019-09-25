@@ -22,9 +22,12 @@ from there you can print out your tax stuff to mail it.
 
 the you can contact the irs and get instructions on how to continue
 
-#notes
+LEARN MORE
+==========
+
 check out how those 3 challenges were solved and take notes on the math methods
 used
+
 
 '%' does the same thing that it does in python (modulo)
 
@@ -82,5 +85,55 @@ a pure function only uses arguments, no global variables, etc. and only has retu
 
 pure functions are the easiest to write tests for, but they might not be the easiest route so solving your
 problem.
+
+
+LISTS
+=====
+
+lists seem to work just like the ones in python
+
+you can refer to a specific position in a list just like in
+
+PROPERTIES
+==========
+
+When using a dot, the part after the dot must be a valid variable name,
+and it directly names the property. When using square brackets, the
+expression between the brackets is evaluated to get the property name.
+
+(think of it like a list comprehension but just for the value you're
+referencing)
+
+you can also reference the array with strings that cannot be variable names
+such as '0' or "John Doe"
+
+properties whose names arent valid binding names or valid numbers have to be
+quoted
+
+OBJECTS
+=======
+
+braces have two meanings in javascript.
+At the start of the statement, they start a block of statements.
+
+In any other position, they describe an object.
+
+'in' returns a boolean if an object has a keyword matching the prefix argument
+```
+console.log("right" in anObject);
+// false
+```
+
+you can get a list of keys with Object.keys:
+```
+console.log(Object.keys({x: 0, y: 0, z: 2}));
+// ["x", "y", "z"]
+```
+
+PHI COEFFICIENT
+===============
+
+our phi function return the phi coefficient to measure correlation.
+the formula is written out on page 67
 
 
