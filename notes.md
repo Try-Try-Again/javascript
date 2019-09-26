@@ -110,6 +110,18 @@ such as '0' or "John Doe"
 properties whose names arent valid binding names or valid numbers have to be
 quoted
 
+METHODS
+=======
+
+pro tip:
+```
+console.log(typeof foo.toUpperCase);
+// function
+// typeof has a funny way of being called
+```
+
+.push() and .pop() work on arrays just like lists with python
+
 OBJECTS
 =======
 
@@ -129,11 +141,27 @@ you can get a list of keys with Object.keys:
 console.log(Object.keys({x: 0, y: 0, z: 2}));
 // ["x", "y", "z"]
 ```
+objects have an 'identity':
+```
+let object1 = {value: 10};
+let object2 = object1;
+let object3 = {value: 10};
+
+console.log(object1 == object2);
+// true
+console.log(object1 == object3);
+// false
+
+object.value = 15;
+console.log(object2.value);
+// 15
+console.log(object3.value);
+// 10
+```
 
 PHI COEFFICIENT
 ===============
 
 our phi function return the phi coefficient to measure correlation.
 the formula is written out on page 67
-
 

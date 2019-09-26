@@ -1,3 +1,9 @@
+// Problem:
+// every night, between 8 p.m. and 10 p.m., Jaques turns into a squirrel
+// It's not known what causes it to happen
+//
+// Goal:
+// analyse list of activies and identify the cause of the problem.
 var day1 = {
   squirrel: false,
   events: ["work", "touched tree", "pizza", "running",
