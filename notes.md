@@ -165,3 +165,69 @@ PHI COEFFICIENT
 our phi function return the phi coefficient to measure correlation.
 the formula is written out on page 67
 
+ARRAY LOOPS
+===========
+
+there is a simpler way to write loops:
+```
+for (let entry of JOURNAL) {
+	console.log(`{entry.events.length} events.`);
+}
+```
+
+FURTHER ARRAYOLOGY
+==================
+
+array.shift is like pop but from the front
+
+array.unshift is like push but to the front
+
+array.indexOf() gets the location of the first element that matches the argument
+
+array.lastIndexOf() gets the location of the last element that matches the argument
+
+both indexOf and lastIndexOf can take an optional argument to pick where in the list to start from
+
+array.slice() takes all of the elements after the start of the index
+
+array.concat() concatinates two lists together
+
+if you try to add an attribute to a string, number, or boolean variable, javascript wont complain,
+but nothing will happen because you gotta assign attibutes of objects
+
+strings do have methods like arrays tho, you can do .slice(), .indexOf(), etc
+
+the string.indexOf() can take a string arg of multiple characters so you can find words in strings
+
+string.trim() removes whitespace from a string
+
+string.padStart adds "padding" to the begining of a string (only works in the example so
+figure this out later)
+
+seems like split and join are both similar to python
+
+string.repeat(n) repeats a string n amount of times
+
+since strings are just fancy arrays, you can address characters in string just like you do in a list
+```
+let string = "abc";
+console.log(string[1]);
+// b
+```
+
+for python style args we use '...'
+```
+function max(...numbers) {
+// etc...
+```
+this is caled a rest parameter in javascript
+
+you can call functions with rest parameters too
+
+```
+console.log(max(...numbers));
+```
+
+calling a function with an array as a rest parameter 'spreads' the contents of the array
+over as indivitual arguments. like args & kwargs in python, this probably need to be put at the end
+of the arguments

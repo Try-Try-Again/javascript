@@ -1,23 +1,12 @@
-// Problem:
-// every night, between 8 p.m. and 10 p.m., Jaques turns into a squirrel
-// It's not known what causes it to happen
-//
-// Goal:
-// analyse list of activies and identify the cause of the problem.
-var day1 = {
-  squirrel: false,
-  events: ["work", "touched tree", "pizza", "running",
-   "television"]
-};
+require('./load')('./jacques_journal.js');
 
-var journal = [];
 
-function addEntry(events, didITurnIntoASquirrel) {
-  journal.push({
-    events: events,
-    squirrel: didITurnIntoASquirrel
-  });
-}
+//function addEntry(events, didITurnIntoASquirrel) {
+//  journal.push({
+//    events: events,
+//    squirrel: didITurnIntoASquirrel
+//  });
+//}
 
 
 function phi(table) {
@@ -43,14 +32,28 @@ function tableFor(event, journal) {
   return table;
 }
 
-console.log(tableFor("pizza", JOURNAL));
+function journalEvents(journal) {
+  let events = [];
+  for (let entry of journal) {
+    for (let event of entry.events) {
+      if (!events.includes(event)) {
+        events.push(event);
+      }
+    }
+  }
+  return events;
+}
 
+for (let entry of JOURNAL) {
+  if (entry.events.includes("peanuts") &&
+    !entry.events.includes("brushed teeth")) {
+    entry.events.push("peanut teeth");
+  }
+}
 
-//addEntry(["work", "touched tree", "pizza", "running",
-//  "television"], false);
-//
-//addEntry["work", "ice cream", "cauliflower", "lasagna",
-//  "touched tree", "brushed teeth"], false);
-//
-//addEntry(["weekend", "cycling", "break", "peanuts",
-//  "beer"], true);
+//for (let event of journalEvents(JOURNAL)) {
+//  let correlation = phi(tableFor(event, JOURNAL));
+//  if (correlation > 0.1 || correlation < -0.1) {
+//    console.log(event + ":", phi(tableFor(event, JOURNAL)));
+//  }
+//}
