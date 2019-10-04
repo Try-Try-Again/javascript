@@ -1,29 +1,7 @@
-#sidenote:
-All of this shit happening around you is part of the deal. Stop complaining
-and just relax. Your only objective is to presevere. No deadlines, no promises
-except for 1. you will get there. eyes foreward.
-breathe in and out.
-
-ps. dont worry about not getting it. You only need to know a demons name to have
-power over him
-
-#idea
-forth optimized for working with and optimizing assembly code.
-should have eval keyworld which interprets 1 lisp program.
-this lisp should use brackets to make it cool :D
-
-programs can have an fpga pattern attached to them.
-this pattern would be an optimized compiler custom designed
-for that specific language.
-
-#take care of yourself.
-find out how to connect your computer to dads printers.
-from there you can print out your tax stuff to mail it.
-
-the you can contact the irs and get instructions on how to continue
-
 LEARN MORE
 ==========
+
+read more setting up optional arguments that depend on a conditional statment (?)
 
 check out how those 3 challenges were solved and take notes on the math methods
 used
@@ -231,3 +209,63 @@ console.log(max(...numbers));
 calling a function with an array as a rest parameter 'spreads' the contents of the array
 over as indivitual arguments. like args & kwargs in python, this probably need to be put at the end
 of the arguments
+
+A LIST
+======
+
+lists are different in javascript! but they exist! :O
+
+
+```
+let list = {
+  value: 1,
+  rest: {
+    value: 2,
+    rest: {
+      value 3,
+      rest: null
+    }
+  }
+};
+```
+not sure whats up with .pop() didnt work in the for loop as a list time.
+intead we use a loop that counted down to iterate through the array from back to front
+we should try that when ever pop doesnt behave right :/
+
+BACKTICK STRINGS
+================
+
+backtick strings have added functionality.
+
+one extra thing they can do is formating like in python:
+
+```
+var foo = "World";
+console.log(`Hello, ${foo}`);
+// Hello, World
+```
+
+ARROW FUNCTIONS
+===============
+
+arrow functions either take 1 naked arg:
+```
+i => {
+	// your function here
+}
+```
+
+... or a group in parenthesis:
+```
+(base, exponenet) => {
+	// your function here
+}
+```
+
+ON FOR LOOPS and arrow functions:
+=============
+
+the 'i' (incrementer) in a for loop can be used
+
+when a function is passed as an argument, the function will lookup variables
+from where ever it was passed into...? :/
