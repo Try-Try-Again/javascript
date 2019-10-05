@@ -262,10 +262,21 @@ i => {
 }
 ```
 
-ON FOR LOOPS and arrow functions:
-=============
+ON FOR LOOPS AND ARROW FUNCTIONS:
+=================================
 
 the 'i' (incrementer) in a for loop can be used
 
 when a function is passed as an argument, the function will lookup variables
 from where ever it was passed into...? :/
+
+DOUBLE PARENTHESIS
+==================
+
+you'll sometimes find something like this:
+```
+noisy(Math.min)(3, 2, 1);
+```
+this means that calling noisy with Math.min as it's arg
+is expected to return some kind of function. (3, 2, 1) are the
+arguments for whatever function is returned from noisy
