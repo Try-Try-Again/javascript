@@ -33,9 +33,8 @@ repeat(6, i => console.log(i + 1));
 
 
 function noisy(f) {
-  // return the result of an arrow function that takes
-  // unspecified number of args (3, 2, 1) from outside
-  // I have no idea how args gets in here. not reproducable
+  // return an anonymous function
+  // which calls f
   return (...args) => {
     console.log("calling with", args);
     let result = f(...args);
