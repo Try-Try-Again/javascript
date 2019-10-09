@@ -280,3 +280,38 @@ noisy(Math.min)(3, 2, 1);
 this means that calling noisy with Math.min as it's arg
 is expected to return some kind of function. (3, 2, 1) are the
 arguments for whatever function is returned from noisy
+
+HIGHER ORDER FUNCTIONS
+======================
+
+# nifty list methods
+array.filter(): create a new array with elements that fall under the given criteria from an existing
+		array.
+
+array.map(): iterate over an array and creates a new array that has each had each item passed through
+	     a function.
+
+array.reduce(): perform ANY list transformation
+
+array.some(): takes a test function and returns true if test returns true on any element
+
+countBy(): is a higher order function that kind of works like pythons ennumerate
+```
+countBy(1, 2, 3, 4, 5], n => n > 2);
+// [{name: false, count: 2}, {name: true, count: 3}]
+```
+
+CHAR CODE AT
+============
+
+string.charCodeAt just gives you the first have of a unicode16 ( :| )
+string.codePointAt give you the whole unicode value.
+
+if you use .codePointAt on a character that uses half the code, .codePointAt will
+return the the character, and whatever comes after it in the string
+
+array.findIndex.():
+	take a function and return the first index where the function
+	returns true
+
+
