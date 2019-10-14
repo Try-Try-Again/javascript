@@ -303,6 +303,7 @@ countBy(1, 2, 3, 4, 5], n => n > 2);
 
 CHAR CODE AT
 ============
+these are for fuckin with utf16 :(
 
 string.charCodeAt just gives you the first have of a unicode16 ( :| )
 string.codePointAt give you the whole unicode value.
