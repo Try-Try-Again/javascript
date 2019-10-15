@@ -315,4 +315,15 @@ array.findIndex.():
 	take a function and return the first index where the function
 	returns true
 
+ENCAPSILATION
+=============
+
+Encapsilation is the separation of interface from implementation
+
+you should name private properties starting with an underscore '_'
+
+all objects have a 'this' attribute that refers to itself
+
+all functions have a call method for calling it from ANY object :|
+
 
