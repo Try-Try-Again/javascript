@@ -326,4 +326,7 @@ all objects have a 'this' attribute that refers to itself
 
 all functions have a call method for calling it from ANY object :|
 
+PROTOTYPES
+==========
 
+object.getPrototypeOf() returns the prototype of an object
