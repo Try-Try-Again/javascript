@@ -375,7 +375,17 @@ Rabbit.prototype.toString = function() {
 SYMBOLS
 =======
 
-when you declare a property, you dont have to use a string.
-you can use a symbol
+symbols are a way to guarentee that javascript doesnt do something
+stupid.
+
+they evaluate to a guarenteed unique number that never changes
+
+in an object, you can assign them to a key.
+
+THE ITERATOR INTERFACE
+======================
+
+you can alter how for/of loops iterate over a specific object
+by altering the objects prototype Symbol.iterator
 
 
