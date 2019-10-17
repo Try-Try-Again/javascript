@@ -1,26 +1,34 @@
-let rabbit = {};
-rabbit.speak = function(line) {
-  console.log(`The rabbit says '${line}'`);
+//function makeRabbit(type) {
+//  let rabbit = Object.create(protoRabbit);
+//  rabbit.type = type;
+//  return rabbit;
+//}
+
+function Rabbit(type) {
+  this.type = type;
+}
+Rabbit.prototype.speak = function(line) {
+  console.log(`The ${this.type} rabbit says '${line}'`);
 };
 
-//rabbit.speak("I'm alive");
-// The rabbit says 'I'm alive.'
+let weirdRabbit = new Rabbit("weird");
 
-function speak(line) {
-  console.log(`The ${this.type} rabbit says '${line}'`);
-}
-let whiteRabbit = {type: "white", speak};
-let hungryRabbit = {type: "hungry", speak};
+weirdRabbit.speak("Ayyy Lmao");
 
-whiteRabbit.speak("Oh my ears and whiskers, " +
-  "how late it's getting!");
-// The white rabbit says 'Oh my ears and whiskers, how
-// late it's getting!'
+Rabbit.prototype.teeth = "small";
+console.log(killerRabbit.teeth);
+// small
+killerRabbit.teeth = "long, sharp, and bloody";
+console.log(killerRabbit.teeth);
+// long, sharp, and bloody
+console.log(blackRabbit.teeth);
+// small
+console.log(Rabbit.prototype.teeth);
+// small
 
-hungryRabbit.speak("I could sure use a carrot right now.");
-// The white rabbit says 'I could sure use a carrot right now.'
-
-speak.call(hungryRabbit, "Burp!");
-
-let dumbRabbit = {type: "dumb"}
-speak.call(dumbRabbit, "AYYLMAO!");
+let sym = Symbol("name");
+console.log(sym == Symbol("name"));
+// false
+Rabbit.prototype[sym] = 55;
+console.log(blackRabbit[sym]);
+// 55

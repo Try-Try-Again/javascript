@@ -375,4 +375,7 @@ Rabbit.prototype.toString = function() {
 SYMBOLS
 =======
 
+when you declare a property, you dont have to use a string.
+you can use a symbol
+
 
