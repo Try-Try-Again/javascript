@@ -1,4 +1,5 @@
 let protoRabbit = {
+  //this is a shorthand way of defining a method
   speak(line) {
     console.log(`The ${this.type} rabbit says '${line}'`);
   }

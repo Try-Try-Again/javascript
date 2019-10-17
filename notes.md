@@ -330,3 +330,49 @@ PROTOTYPES
 ==========
 
 object.getPrototypeOf() returns the prototype of an object
+
+you can create a new instance with new
+
+captialize your constructor functions
+
+it seems like the constructor function is like init.
+
+you can only declare methods in class declarations (no attributes)
+
+class is used in statements to define prototypes cleanly.
+when class is used in an expression, is produces a contructor as a value.
+(like anonymous functions
+
+array.toString() is like .join(",")
+
+MAPS
+====
+
+you can create a map like this:
+```
+let myVar = new Map();
+```
+
+maps have some methods of their own:
+set - assign a value to a key in a map
+get - query for a key value pair and return the value
+has - returns true if an object has something
+
+POLYMORPHISM
+============
+
+you can re-assign a prototypes methods to whatever you want.
+re-assigning these methods to something else is like using
+data-model-methods in python:
+
+```
+Rabbit.prototype.toString = function() {
+	return `a ${this.type} rabbit`;
+};
+// this will change what is returned from the built in .toString method
+```
+
+SYMBOLS
+=======
+
+
