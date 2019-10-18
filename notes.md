@@ -388,4 +388,5 @@ THE ITERATOR INTERFACE
 you can alter how for/of loops iterate over a specific object
 by altering the objects prototype Symbol.iterator
 
+Symbol.iterator is kinda like a data model method in python
 
