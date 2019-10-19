@@ -390,3 +390,6 @@ by altering the objects prototype Symbol.iterator
 
 Symbol.iterator is kinda like a data model method in python
 
+!work on that matrix bullshit later
+
+

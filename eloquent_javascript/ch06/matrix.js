@@ -1,25 +1,38 @@
+// continue annotating this later. it's real nasty lol
 class Matrix {
+  // initialize object with a height and width parameters and...
+  // an optional function which defaults to return undefined
   constructor(width, height, element = (x, y) => undefined) {
     this.width = width;
     this.height = height;
     this.content = [];
 
+    // for y amount of times...
     for (let y = 0; y < height; y++) {
+      // for x amount of times
       for (let x = 0; x < width; x++) {
+        // to the contend list, at an index equal to whats in
+        // whats evaluated, assign the result of running
+        // element on x and y
         this.content[y * width + x] = element(x, y);
       }
     }
   }
 
+  // when this object is evaluated with an x and y arg, just
+  // return this...
   get(x, y) {
     return this.content[y * this.width + x];
   }
+  // when you re-assign matrix to something with '=' ...
+  // don't overwrite it the object, just run this...
   set(x, y, value) {
     this.content[y * this.width + x] = value;
   }
 }
 
 class MatrixIterator {
+  // matrix iterator takes a matrix and an arg
   constructor(matrix) {
     this.x = 0;
     this.y = 0;
